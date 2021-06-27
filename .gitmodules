@@ -1,0 +1,6 @@
+[submodule "components/esp32_hap_wolfssl"]
+	path = components/esp32_hap_wolfssl
+	url = https://github.com/slompf18/esp32_hap_wolfssl.git
+[submodule "components/esp32_hap"]
+	path = components/esp32_hap
+	url = https://github.com/slompf18/esp32_hap.git
