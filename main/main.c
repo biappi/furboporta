@@ -10,6 +10,7 @@
 #include <freertos/task.h>
 #include <driver/gpio.h>
 
+#include "segreto-di-fatima.h"
 #include "debounce.h"
 
 const char* NAME                   = "Furboporta";
@@ -153,7 +154,7 @@ void app_main()
     // hk_reset();
 
     // starting homekit
-    hk_init(NAME, HK_CAT_DOOR, "111-22-222");
+    hk_init(NAME, HK_CAT_DOOR, SEGRETO_DI_FATIMA);
 
     while (true) {
         sensor_update(&sensors[0]);
