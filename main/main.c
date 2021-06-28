@@ -34,9 +34,21 @@ typedef struct {
 } sensor_t;
 
 sensor_t sensors[] = {
-    { .name = "Button", .button_pin = 36, },
-    { .name = "Sensor", .button_pin = 39, },
-    { .name = "Bell",   .button_pin = 34, },
+    { .name = "Button", .button_pin = 36,
+        .debounce = { 
+            .inverted = true
+        },
+    },
+    { .name = "Sensor", .button_pin = 39,
+        .debounce = { 
+            .inverted = false
+        },
+    },
+    { .name = "Bell",   .button_pin = 34,
+        .debounce = { 
+            .inverted = true
+        },
+    },
 };
 
 void on_identify()
@@ -96,8 +108,6 @@ void sensor_timer_callback(TimerHandle_t timer);
 void sensor_init(sensor_t *sensor) {
     gpio_pad_select_gpio(sensor->button_pin);
     gpio_set_direction(sensor->button_pin, GPIO_MODE_INPUT);
-
-    sensor->debounce.inverted = true;
 
     sensor->motion_stop_timer = xTimerCreate(
         "motion stop timeout",
