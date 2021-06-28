@@ -68,19 +68,19 @@ esp_err_t on_read_3(hk_mem *response) {
 }
 
 esp_err_t name_read_1(hk_mem *response) {
-    char *name = sensors[0].name;
+    char *name = (char *)sensors[0].name;
     hk_mem_append_buffer(response, name, strlen(name));
     return ESP_OK;
 }
 
 esp_err_t name_read_2(hk_mem *response) {
-    char *name = sensors[1].name;
+    char *name = (char *)sensors[1].name;
     hk_mem_append_buffer(response, name, strlen(name));
     return ESP_OK;
 }
 
 esp_err_t name_read_3(hk_mem *response) {
-    char *name = sensors[2].name;
+    char *name = (char *)sensors[2].name;
     hk_mem_append_buffer(response, name, strlen(name));
     return ESP_OK;
 }
